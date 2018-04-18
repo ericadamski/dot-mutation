@@ -18,10 +18,12 @@ npm i dot-mutation
 
 ## Usage
 
+[![Edit Example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/zn666qqwl?autoresize=1&module=%2Fsrc%2Findex.js)
+
 **deconstruct**
 
 ```javascript
-function deconstruct(o: Object): { [key: string ]: any }
+function deconstruct(o: Object): Object
 ```
 
 Returns a single level deep JavaScript Object where each key is a path, using dot notation, to the value of the input Object.
@@ -29,7 +31,7 @@ Returns a single level deep JavaScript Object where each key is a path, using do
 **construct**
 
 ```javascript
-function deconstruct(o: Object): { [key: string ]: any }
+function construct(o: Object): Object
 ```
 
 Returns a JavaScript Object where each key from the input Object is a path description to the output object. (ie. for input Object `o` a key of `o['a.b.c']` results in a path of `o.a.b.c`)
@@ -41,7 +43,7 @@ const obj = {
   a: {
     b: {
       c: 'value'
-    }
+    },
     d: [
       {
         nested: 'values'
@@ -71,7 +73,7 @@ const deconstructed = {
       nested: 'values'
     }
   ],
-  'e' : 'value'
+  e: 'value'
 };
 
 console.log(construct(deconstructed));
